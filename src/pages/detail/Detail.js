@@ -15,14 +15,15 @@ function Detail() {
 			history.push('/');
 		};
 		async function fetchData() {
-			const response = await getEarthQuakeById(earthquakeId);
-			setData(response);
+			try {
+				const response = await getEarthQuakeById(earthquakeId);
+				if (!response) goHome();
+				setData(response);
+			} catch (e) {
+				goHome();
+			}
 		}
-		try {
-			fetchData();
-		} catch (e) {
-			goHome();
-		}
+		fetchData();
 	}, [earthquakeId, history]);
 
 	return (

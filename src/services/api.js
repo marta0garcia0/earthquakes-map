@@ -1,4 +1,4 @@
-const API_URL = 'https://earthquake.usgs.gov/fdsnws/event/1/';
+import { API_URL } from './../constants';
 
 const getEarthQuakesByDate = (startTime, endTime) =>
   fetch(`${API_URL}query?format=geojson&starttime=${startTime}&endtime=${endTime}`)
