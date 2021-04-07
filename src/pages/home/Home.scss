@@ -1,0 +1,47 @@
+.Home {
+	display: flex;
+	flex-direction: column;
+	height: calc(100vh - 50px);
+	.map {
+		flex: calc(100% - 80px);
+	}
+	.map.wholewide {
+		flex: calc(100% - 20px);
+	}
+	.menu {
+		flex: 80px;
+		transition: flex 0.2s;
+	}
+	.menu.hidden {
+		transition: flex 0.2s;
+		flex: 20px;
+	}
+	img.logo {
+		float: right;
+		width: 20px;
+		margin: 10px;
+	}
+	.date-form {
+		display: block;
+	}
+	.date-form.hidden {
+		display: none;
+	}
+}
+@media (min-width: 600px) {
+	.Home {
+		display: flex;
+		flex-direction: row;
+		.map {
+			flex: calc(100% - 200px);
+		}
+		.map.wholewide {
+		transition: flex 0.2s;
+		flex: calc(100% - 20px);
+		}
+		.menu {
+			flex: 200px;
+			transition: flex 0.2s;
+		}
+	}
+}

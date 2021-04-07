@@ -1,0 +1,40 @@
+* {
+  box-sizing: border-box;
+}
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: #333;
+  .App-header {
+    background-color: #282c34;
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    img {
+      margin-right: 10px;
+      width: 30px;
+    }
+    .App-link {
+      font-size: 28px;
+      text-decoration: none;
+      color: #61dafb;
+    }
+  }
+  button.primary {
+    background-color: #282c34;
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+  }
+  button:active {
+    opacity: 0.85;
+  }
+}
+

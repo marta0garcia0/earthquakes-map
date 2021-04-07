@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom';
+import './App.scss';
+import logo from './assets/globe-7-256.png';
+import Detail from './pages/detail/Detail';
+import Home from './pages/home/Home';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
+    <div className='App'>
+      <div className='App-header'>
+        <a className='App-link' href='/'>
+          <img src={logo} className='App-logo' alt='logo' />
+          Earthquakes map
         </a>
-      </header>
+      </div>
+      <Router>
+          <Switch>
+            <Route path='/detail/:earthquakeId'>
+              <Detail />
+            </Route>
+            <Route path='/'>
+              <Home />
+            </Route>
+          </Switch>
+      </Router>
     </div>
   );
 }

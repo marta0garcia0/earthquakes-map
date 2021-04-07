@@ -1,0 +1,12 @@
+#map-container {
+	width: 100%;
+	height: 100%;
+}
+.marker {
+  background-image: url('./../../assets/map-marker-2-256-red.png');
+  background-size: cover;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+}

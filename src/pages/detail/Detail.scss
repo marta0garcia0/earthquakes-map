@@ -1,0 +1,19 @@
+.Detail {
+	margin: 10px;
+	#map-container {
+		margin: 0 auto;
+		height: 300px;
+		width: 300px;
+	}
+	li {
+		list-style-type: none;
+	}
+	display: flex;
+	flex-direction: column;
+}
+@media (min-width: 600px) {
+	.Detail {
+		display: flex;
+		flex-direction: row;
+	}
+}
