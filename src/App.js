@@ -18,14 +18,14 @@ function App() {
         </a>
       </div>
       <Router>
-          <Switch>
-            <Route path='/detail/:earthquakeId'>
-              <Detail />
-            </Route>
-            <Route path='/'>
-              <Home />
-            </Route>
-          </Switch>
+        <Switch>
+          <Route path='/detail/:earthquakeId'>
+            <Detail />
+          </Route>
+          <Route path='/'>
+            <Home />
+          </Route>
+        </Switch>
       </Router>
     </div>
   );

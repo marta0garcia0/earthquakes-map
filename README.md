@@ -47,3 +47,4 @@ In the project directory, you can run:
     * useRef to store data var to compare with previous render to calculate if render again or not
     * useRef to store map var to keep the map and not creating a new one every render
     * and useRef to store resize var to avoid unnecessary rerenders
+- If the data cannot be fetch a toaster message will appear, and dissappear when click or after 5 seconds
