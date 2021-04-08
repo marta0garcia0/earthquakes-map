@@ -3,7 +3,7 @@ import React from 'react';
 function PopUp({properties, seeDetail}) {
 	const firstId = properties.ids.slice(1).split(',')[0];
   return (
-		<div id='map-container'>
+		<div id='popup-container'>
 			<div>
 				<span>ids: {firstId}</span><br></br>
 				<span>title: {properties.title}</span><br></br>
