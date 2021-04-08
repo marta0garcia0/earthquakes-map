@@ -14,11 +14,10 @@ function Map({data, resize, seeDetail, isDetailActive}) {
 	const prevMapRef = useRef();
 	const prevResizeRef = useRef();
 	const prevDataRef = useRef();
-	let map;
 
 	function initializeMap() {
 		setLoad(true);
-		map = new mapbox.Map({
+		const map = new mapbox.Map({
 			container: 'map-container',
 			center: INIT_COORDINATES,
 			zoom: 1,
@@ -29,6 +28,7 @@ function Map({data, resize, seeDetail, isDetailActive}) {
 	}
 
 	function setSources() {
+		const map = prevMapRef.current;
 		map.addSource('earthquake', {
 			'type': 'geojson',
 			'data': {
@@ -39,6 +39,7 @@ function Map({data, resize, seeDetail, isDetailActive}) {
 	}
 
 	function setMarkerLayer() {
+		const map = prevMapRef.current;
 		map.addLayer({
 			'id': 'places',
 			'type': 'symbol',
@@ -59,7 +60,8 @@ function Map({data, resize, seeDetail, isDetailActive}) {
 		});
 	}
 
-	function setImages() {
+	function loadImagesSource() {
+		const map = prevMapRef.current;
 		map.loadImage(logo, (error, image) => {
 			map.loadImage(redLogo, (redError, redImage) => {
 				if (error) throw error;
@@ -86,6 +88,7 @@ function Map({data, resize, seeDetail, isDetailActive}) {
 	}
 
 	function setTooltip() {
+		const map = prevMapRef.current;
 		map.on('click', 'places', function (e) {
 			let coordinates = e.features[0].geometry.coordinates.slice();
 			while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
@@ -113,9 +116,8 @@ function Map({data, resize, seeDetail, isDetailActive}) {
 	useEffect(() => {
 		if (!prevMapRef.current) {
 			initializeMap();
-		} else {
-			map = prevMapRef.current;
 		}
+		const map = prevMapRef.current;
 		// data change side effect
 		if (prevResizeRef.current === undefined || prevResizeRef.current === resize) {
 			// first data render or data different from previous data
@@ -125,7 +127,7 @@ function Map({data, resize, seeDetail, isDetailActive}) {
 				map.setCenter(center);
 				map.setZoom(isDetailActive || !data ? MIN_ZOOM : MAX_ZOOM);
 				if (data) {
-					setImages();
+					loadImagesSource();
 				}
 				if (isDetailActive) {
 					setTooltip();
@@ -142,6 +144,7 @@ function Map({data, resize, seeDetail, isDetailActive}) {
 		prevDataRef.current = data;
 		prevMapRef.current = map;
 		prevResizeRef.current = resize;
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [data, resize, isDetailActive, seeDetail]);
 	
 	return (
