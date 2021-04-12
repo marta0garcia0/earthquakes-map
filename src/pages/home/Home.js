@@ -24,7 +24,7 @@ function Home() {
 			setLoad(true);
 			try {
 				const response = await getEarthQuakesByDate(startDate, endDate);
-				if (!response || !response.ok) {
+				if (!response) {
 					setToaster(response.statusText ? response.statusText : ERROR_MESSAGE);
 				} else {
 					setData(response);

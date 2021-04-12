@@ -19,7 +19,7 @@ function Detail() {
 			setLoad(true);
 			try {
 				const response = await getEarthQuakeById(earthquakeId);
-				if (!response || !response.ok) {
+				if (!response) {
 					setToaster(response.statusText ? response.statusText : ERROR_MESSAGE);
 				} else{
 					setData(response);
